@@ -33,7 +33,7 @@ def parseDifferentialBackup(rel_path: pathlib.Path):
 
 
 def get_backups():
-    backups_path = pathlib.Path(os.environ["BACKUPS_PATH"])
+    backups_path = pathlib.Path(os.environ["BACKUPS_FOLDER"])
     backups = []
     for folder in backups_path.iterdir():
         if not folder.is_dir():
@@ -71,7 +71,7 @@ def get_backups():
 
 def get_backup_folder_file(rel_path: str) -> tuple[str, str] | None:
     rel_path = pathlib.Path(rel_path)
-    backups_path = pathlib.Path(os.environ["BACKUPS_PATH"])
+    backups_path = pathlib.Path(os.environ["BACKUPS_FOLDER"])
     path = backups_path / rel_path
     if not path.exists():
         return None

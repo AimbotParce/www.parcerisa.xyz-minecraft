@@ -19,14 +19,14 @@ stats_list = [
         "color": lambda x: "green" if x else "red",
         "icon": lambda x: "power" if x else "power_off",
     },
-    {
-        "name": "latency",
-        "get": lambda status: status.latency,
-        "default": 9999,
-        "text": lambda x: f"{x:.1f}",
-        "color": lambda x: "green" if x < 100 else "red",
-        "icon": lambda x: "wifi" if x < 9999 else "wifi_off",
-    },
+    # {
+    #     "name": "latency",
+    #     "get": lambda status: status.latency,
+    #     "default": 9999,
+    #     "text": lambda x: f"{x:.1f}",
+    #     "color": lambda x: "green" if x < 100 else "red",
+    #     "icon": lambda x: "wifi" if x < 9999 else "wifi_off",
+    # },
 ]
 
 

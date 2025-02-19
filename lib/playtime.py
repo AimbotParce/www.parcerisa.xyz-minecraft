@@ -1,9 +1,10 @@
 import json
+import os
 import pathlib
 
 from mojang import API
 
-SERVER_FOLDER = pathlib.Path("/home/mcuser/Home-MC/minecraft/1.19_Vanilla_2023")
+SERVER_FOLDER = pathlib.Path(os.environ["SERVER_FOLDER"])
 
 STATS_FOLDER = SERVER_FOLDER / "world" / "stats"
 

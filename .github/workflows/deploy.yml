@@ -1,0 +1,22 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Login to self-hosted Docker registry
+        run: echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login docker.parcerisa.xyz:5000 -u ${{ secrets.REGISTRY_USER }} --password-stdin
+
+      - name: Build Docker image
+        run: docker build -t docker.parcerisa.xyz:5000/www-parcerisa-xyz-minecraft:latest .
+
+      - name: Push Docker image to registry
+        run: docker push docker.parcerisa.xyz:5000/www-parcerisa-xyz-minecraft:latest
